@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <title>Fractal Viewer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: sans-serif;
+            user-select: none;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            width: max-content;
+        }
+
+        #menu * {
+            cursor: default;
+        }
+
+        #menu input[type="number"] {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid black;
+            text-align: center;
+            width: 50px;
+        }
+
+        #menu input[type="number"]:disabled {
+            color: #888;
+        }
+
+        #menu button {
+            margin-left: 20px;
+            padding: 2px 5px;
+            border-radius: 0;
+            border: none;
+            background: #000;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #menu button:disabled {
+            background: #444;
+            color: #bbb;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c"></canvas>
+    <canvas id="c2"></canvas>
+
+    <div id="menu">
+        f(z) = z² +
+        <input id="cx" type="number" value="-1" disabled>
+        +
+        <input id="cy" type="number" value="0" disabled>i
+
+        <button id="recompute" disabled>Recompute</button>
+
+        <button id="orbits" disabled>Hide Orbits</button>
+
+        <button id="back" disabled>Back</button>
+
+        <button id="reset" disabled>Reset</button>
+    </div>
+
+    <script src='colors.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>
